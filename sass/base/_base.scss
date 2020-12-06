@@ -1,0 +1,44 @@
+
+*::after,
+*::before,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    //This shows what 1rem is equal to 10px; Also 10px/16px = 62.5%
+    //This font-size defines the entire layout
+    font-size: 62.5%;
+    
+    @include respond(tab-land) { //width > 1200px ?
+        font-size: 56.25%;  //1rem = 9px; (user-defined) 9/16 = 56.25%;
+    }
+
+
+    @include respond(tab-port) { //width > 900px ?
+        font-size: 50%; //1rem = 8px; (user-defined) 8/16 = 50%;
+    }
+
+
+    @include respond(big-desktop) {
+        font-size: 75%;  //1rem = 12; 12/16 = 75%;
+    }
+}
+
+/* The font-family has to be declared in the body only. */
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+
+    @include respond(tab-port) { //width > 900px ?
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
